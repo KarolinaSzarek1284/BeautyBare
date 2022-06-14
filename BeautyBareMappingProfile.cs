@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BeautyBareAPI.Entities;
 using BeautyBareAPI.Models;
+using BeautyBareAPI.ViewModels;
 
 namespace BeautyBareAPI
 {
@@ -18,6 +19,8 @@ namespace BeautyBareAPI
                 .ForMember(m => m.Brand, c => c.MapFrom(dto => new Brand() { Name = dto.BrandName, Country = dto.BrandCountry }));
 
             CreateMap<CreateIngredientDto, Ingredient>();
+
+            CreateMap<IngredientDto, ViewModel>();
         }
     }
 }

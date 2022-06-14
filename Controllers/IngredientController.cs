@@ -1,5 +1,7 @@
-﻿using BeautyBareAPI.Models;
+﻿using AutoMapper;
+using BeautyBareAPI.Models;
 using BeautyBareAPI.Services;
+using BeautyBareAPI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeautyBareAPI.Controllers
@@ -9,10 +11,12 @@ namespace BeautyBareAPI.Controllers
     public class IngredientController : ControllerBase
     {
         private readonly IIngredientService _ingredientService;
+        private readonly IMapper _mapper;
 
-        public IngredientController(IIngredientService ingredientService)
+        public IngredientController(IIngredientService ingredientService, IMapper mapper)
         {
             _ingredientService = ingredientService;
+            _mapper = mapper;
         }
         [HttpPost]
         public ActionResult Post([FromRoute] int productId, [FromBody] CreateIngredientDto dto)
@@ -22,10 +26,9 @@ namespace BeautyBareAPI.Controllers
             return Created($"api/{productId}/ingredient/{newIngredientId}", null);
         }
         [HttpGet("{ingredientId}")]
-        public ActionResult<IngredientDto> Get([FromRoute] int productId, [FromRoute] int ingredientId)
+        public ActionResult<ViewModel> Get([FromRoute] int productId, [FromRoute] int ingredientId)
         {
-            IngredientDto ingredient = _ingredientService.GetById(productId, ingredientId);
-            return Ok(ingredient);
+            return Ok(_ingredientService.GetById(productId, ingredientId));
         }
 
         [HttpGet]

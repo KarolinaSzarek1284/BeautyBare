@@ -2,6 +2,7 @@
 using BeautyBareAPI.Entities;
 using BeautyBareAPI.Exceptions;
 using BeautyBareAPI.Models;
+using BeautyBareAPI.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace BeautyBareAPI.Services
@@ -33,16 +34,26 @@ namespace BeautyBareAPI.Services
 
         public IngredientDto GetById(int productId, int ingredientId)
         {
-            var product = GetProductById(productId);
+            var product = _context.Products.FirstOrDefault(p => p.Id == productId);
+            if (product is null)
+            {
+                throw new NotFoundException("Product not found");
+            }
+            var ingredient = _context.Ingredients.Select(x => new IngredientDto()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                ProductId = x.ProductId
+            })
+            .FirstOrDefault(i => i.Id == ingredientId);
 
-            var ingredient = _context.Ingredients.FirstOrDefault(i => i.Id == ingredientId);
-            if (ingredient is null || ingredient.ProductId != ingredientId)
+            if (ingredient is null || ingredient.ProductId != productId)
+
             {
                 throw new NotFoundException("Ingredient not found");
-            }
-
-            var ingredientDto = _mapper.Map<IngredientDto>(ingredient);
-            return ingredientDto;
+            };
+            var ingredientDto = _mapper.Map<ViewModel>(ingredient);
+            return ingredient;
         }
 
         public List<IngredientDto> GetAll(int productId)

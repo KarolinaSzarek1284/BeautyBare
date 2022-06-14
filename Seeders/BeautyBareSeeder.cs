@@ -10,7 +10,6 @@ namespace BeautyBareAPI
         {
             _dbContext = dbContext;
         }
-
         public void Seed()
         {
             if (_dbContext.Database.CanConnect())
