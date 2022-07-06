@@ -11,6 +11,8 @@ using BeautyBareAPI.Models;
 using FluentValidation.AspNetCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Mapster;
+using BeautyBareAPI.Dtos;
 
 var builder = WebApplication.CreateBuilder();
 
@@ -45,7 +47,7 @@ builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<RequestTimeMiddleware>();
 builder.Services.AddScoped<IIngredientService, IngredientService>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
-builder.Services.AddScoped<IValidator<RegisterUserDto>, RegisterUserDtoValidator>();
+builder.Services.AddScoped<IValidator<RegisterUserModel>, RegisterUserDtoValidator>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAccountService, AccountService>();
@@ -68,6 +70,8 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
+TypeAdapterConfig<IngredientModel, IngredientDto>.NewConfig()
+    .Map(dest => dest.Name, src => src.Name);
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseMiddleware<RequestTimeMiddleware>();

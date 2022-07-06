@@ -19,7 +19,7 @@ namespace BeautyBareAPI.Services
             _logger = logger;
         }
 
-        public ProductDto GetById(int id)
+        public ProductModel GetById(int id)
         {
             var product = _context
             .Products
@@ -30,11 +30,11 @@ namespace BeautyBareAPI.Services
             if (product is null)
                 throw new NotFoundException("Product not found");
 
-            var result = _mapper.Map<ProductDto>(product);
+            var result = _mapper.Map<ProductModel>(product);
             return result;
         }
 
-        public IEnumerable<ProductDto> GetAll()
+        public IEnumerable<ProductModel> GetAll()
         {
             var products = _context
             .Products
@@ -42,12 +42,12 @@ namespace BeautyBareAPI.Services
             .Include(p => p.Ingredients)
             .ToList();
 
-            var productsDtos = _mapper.Map<List<ProductDto>>(products);
+            var productsDtos = _mapper.Map<List<ProductModel>>(products);
 
             return productsDtos;
         }
 
-        public int Create(CreateProductDto dto)
+        public int Create(CreateProductModel dto)
         {
             var product = _mapper.Map<Product>(dto);
             _context.Products.Add(product);
@@ -71,7 +71,7 @@ namespace BeautyBareAPI.Services
             _context.SaveChanges();
         }
 
-        public void Update(int id, UpdateProductDto dto)
+        public void Update(int id, UpdateProductModel dto)
         {
             var product = _context
             .Products

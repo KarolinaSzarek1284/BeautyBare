@@ -22,7 +22,7 @@ namespace BeautyBareAPI.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public ActionResult CreateProduct([FromBody] CreateProductDto dto)
+        public ActionResult CreateProduct([FromBody] CreateProductModel dto)
         {
             var id = _productService.Create(dto);
 
@@ -38,7 +38,7 @@ namespace BeautyBareAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update([FromBody] UpdateProductDto dto, [FromRoute] int id)
+        public ActionResult Update([FromBody] UpdateProductModel dto, [FromRoute] int id)
         {
              _productService.Update(id, dto);
 
@@ -46,7 +46,7 @@ namespace BeautyBareAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<ProductDto>> GetAll()
+        public ActionResult<IEnumerable<ProductModel>> GetAll()
         {
             var productsDtos = _productService.GetAll();
 
@@ -55,7 +55,7 @@ namespace BeautyBareAPI.Controllers
 
         [HttpGet("{id}")]
         [AllowAnonymous]
-        public ActionResult<ProductDto> Get([FromRoute] int id)
+        public ActionResult<ProductModel> Get([FromRoute] int id)
         {
             var product = _productService.GetById(id);
 

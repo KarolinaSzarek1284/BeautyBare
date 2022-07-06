@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
+using BeautyBareAPI.Dtos;
 using BeautyBareAPI.Entities;
 using BeautyBareAPI.Exceptions;
 using BeautyBareAPI.Models;
-using BeautyBareAPI.ViewModels;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 namespace BeautyBareAPI.Services
@@ -17,7 +18,7 @@ namespace BeautyBareAPI.Services
             _context = context;
             _mapper = mapper;
         }
-        public int Create(int productId, CreateIngredientDto dto)
+        public int Create(int productId, CreateIngredientModel dto)
         {
             var product = GetProductById(productId);
 
@@ -32,14 +33,11 @@ namespace BeautyBareAPI.Services
 
         }
 
-        public IngredientDto GetById(int productId, int ingredientId)
+        public IngredientModel GetById(int productId, int ingredientId)
         {
-            var product = _context.Products.FirstOrDefault(p => p.Id == productId);
-            if (product is null)
-            {
-                throw new NotFoundException("Product not found");
-            }
-            var ingredient = _context.Ingredients.Select(x => new IngredientDto()
+            var product = GetProductById(productId);
+
+            var ingredient = _context.Ingredients.Select(x => new IngredientModel()
             {
                 Id = x.Id,
                 Name = x.Name,
@@ -51,15 +49,15 @@ namespace BeautyBareAPI.Services
 
             {
                 throw new NotFoundException("Ingredient not found");
-            };
-            var ingredientDto = _mapper.Map<ViewModel>(ingredient);
+            }
+
             return ingredient;
         }
 
-        public List<IngredientDto> GetAll(int productId)
+        public List<IngredientModel> GetAll(int productId)
         {
             var product = GetProductById(productId);
-            var ingredientDto = _mapper.Map<List<IngredientDto>>(product.Ingredients);
+            var ingredientDto = _mapper.Map<List<IngredientModel>>(product.Ingredients);
 
             return ingredientDto;
         }

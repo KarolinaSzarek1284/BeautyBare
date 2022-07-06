@@ -4,7 +4,7 @@ namespace BeautyBareAPI.Services
 {
     public interface IAccountService
     {
-        void RegisterUser(RegisterUserDto dto);
-        string GenerateJwt(LoginDto dto);
+        void RegisterUser(RegisterUserModel dto);
+        string GenerateJwt(LoginModel dto);
     }
 }

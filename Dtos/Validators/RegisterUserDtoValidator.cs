@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace BeautyBareAPI.Models.Validators
 {
-    public class RegisterUserDtoValidator : AbstractValidator<RegisterUserDto>
+    public class RegisterUserDtoValidator : AbstractValidator<RegisterUserModel>
     {
         public RegisterUserDtoValidator(BeautyBareContext dbContext)
         {

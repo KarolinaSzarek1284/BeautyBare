@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
+using BeautyBareAPI.Dtos;
 using BeautyBareAPI.Entities;
 using BeautyBareAPI.Models;
-using BeautyBareAPI.ViewModels;
+using Mapster;
 
 namespace BeautyBareAPI
 {
@@ -9,18 +10,20 @@ namespace BeautyBareAPI
     {
         public BeautyBareMappingProfile()
         {
-            CreateMap<Product, ProductDto>()
+            TypeAdapterConfig<IngredientModel, IngredientDto>.NewConfig()
+            .Map(dest => dest.Name, src => src.Name);
+
+            CreateMap<Product, ProductModel>()
                 .ForMember(m => m.BrandName, c => c.MapFrom(s => s.Brand.Name))
                 .ForMember(m => m.BrandCountry, c => c.MapFrom(s => s.Brand.Country));
 
-            CreateMap<Ingredient, IngredientDto>();
+           // CreateMap<Ingredient, IngredientModel>();
 
-            CreateMap<CreateProductDto, Product>()
+            CreateMap<CreateProductModel, Product>()
                 .ForMember(m => m.Brand, c => c.MapFrom(dto => new Brand() { Name = dto.BrandName, Country = dto.BrandCountry }));
 
-            CreateMap<CreateIngredientDto, Ingredient>();
+            CreateMap<CreateIngredientModel, Ingredient>();
 
-            CreateMap<IngredientDto, ViewModel>();
         }
     }
 }

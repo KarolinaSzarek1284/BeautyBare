@@ -23,7 +23,7 @@ namespace BeautyBareAPI.Services
             _authenticationSettings = authenticationSettings;
         }
 
-        public void RegisterUser(RegisterUserDto dto)
+        public void RegisterUser(RegisterUserModel dto)
         {
             var newUser = new User()
             {
@@ -39,7 +39,7 @@ namespace BeautyBareAPI.Services
             _context.SaveChanges();
         }
 
-        public string GenerateJwt(LoginDto dto)
+        public string GenerateJwt(LoginModel dto)
         {
             var user = _context.Users
                 .Include(u => u.Role)

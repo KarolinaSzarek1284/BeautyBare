@@ -2,7 +2,7 @@
 
 namespace BeautyBareAPI.Models
 {
-    public class RegisterUserDto
+    public class RegisterUserModel
     {
         public string Email { get; set; }
         public string Password { get; set; }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BeautyBareAPI.Models
 {
-    public class CreateIngredientDto
+    public class CreateIngredientModel
     {
         [Required]
         public string Name { get; set; }

@@ -2,7 +2,7 @@
 
 namespace BeautyBareAPI.Models
 {
-    public class UpdateProductDto
+    public class UpdateProductModel
     {
         [Required]
         [MaxLength(30)]

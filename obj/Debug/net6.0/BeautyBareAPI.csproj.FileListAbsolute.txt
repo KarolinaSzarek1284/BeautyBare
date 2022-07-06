@@ -69,3 +69,5 @@ C:\C#Projects\BeautyBareAPI\bin\Debug\net6.0\FluentValidation.dll
 C:\C#Projects\BeautyBareAPI\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\C#Projects\BeautyBareAPI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\C#Projects\BeautyBareAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\C#Projects\BeautyBareAPI\bin\Debug\net6.0\Mapster.dll
+C:\C#Projects\BeautyBareAPI\bin\Debug\net6.0\Mapster.Core.dll
