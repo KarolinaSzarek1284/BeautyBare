@@ -6,7 +6,7 @@ namespace BeautyBareAPI.Services
     {
         int Create(int productId, CreateIngredientDto dto);
         IngredientDto GetById(int productId, int ingredientId);
-        public List<IngredientDto> GetAll(int productId);
+        public IQueryable<IngredientDto> GetAll(int productId);
         void RemoveAll(int productId);
         void Remove(int producId, int ingredientId);
     }

@@ -11,6 +11,7 @@ using BeautyBareAPI.Models;
 using FluentValidation.AspNetCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using BeautyBareAPI.Seeders;
 
 var builder = WebApplication.CreateBuilder();
 
@@ -39,7 +40,6 @@ builder.Services.AddAuthentication(option =>
 builder.Services.AddDbContext<BeautyBareContext>();
 builder.Services.AddControllers().AddFluentValidation();
 builder.Services.AddScoped<BeautyBareSeeder>();
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<RequestTimeMiddleware>();

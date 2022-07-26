@@ -1,6 +1,6 @@
 ﻿using BeautyBareAPI.Entities;
 
-namespace BeautyBareAPI
+namespace BeautyBareAPI.Seeders
 {
     public class BeautyBareSeeder
     {
@@ -71,7 +71,7 @@ namespace BeautyBareAPI
                             Name = "Aqua"
                         },
                         new Ingredient()
-                        { 
+                        {
                             Name = "Rosa Damascena Flower Water"
                         },
                         new Ingredient()
@@ -89,10 +89,10 @@ namespace BeautyBareAPI
 
                     },
                     Brand = new Brand()
-                    { 
+                    {
                         Name = "DERMIKA",
                         Country = "Poland"
-                    } 
+                    }
                 },
 
                 new Product()
