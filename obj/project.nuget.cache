@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Lc8PsgJcIF+fFHkkX7LyLyMsLq+Qlp/9u1hvyensFoKQDxZNWbXnyHHNSDBBf5OZJIvuYXPK8yNtcIjtREORPQ==",
+  "dgSpecHash": "cVFCVzPQvp/I7RDTqPRzEILRh9+CEcJRkU3yqowo0VvCBn8/J8GOklCC/i6+TLr7LGy3vii0AT/E1hvMEMHCBQ==",
   "success": true,
-  "projectFilePath": "C:\\C#Projects\\BeautyBareAPI\\BeautyBareAPI.csproj",
+  "projectFilePath": "C:\\C#Projects\\BeautyBare\\BeautyBareAPI\\BeautyBareAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\impos\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\impos\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

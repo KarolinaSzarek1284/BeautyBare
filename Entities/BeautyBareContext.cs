@@ -13,6 +13,7 @@ namespace BeautyBareAPI.Entities
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<MakeUpBagItem> MakeUpBagItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

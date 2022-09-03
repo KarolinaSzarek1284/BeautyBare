@@ -2373,11 +2373,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\C#Projects\\BeautyBareAPI\\BeautyBareAPI.csproj",
+      "projectUniqueName": "C:\\C#Projects\\BeautyBare\\BeautyBareAPI\\BeautyBareAPI.csproj",
       "projectName": "BeautyBareAPI",
-      "projectPath": "C:\\C#Projects\\BeautyBareAPI\\BeautyBareAPI.csproj",
+      "projectPath": "C:\\C#Projects\\BeautyBare\\BeautyBareAPI\\BeautyBareAPI.csproj",
       "packagesPath": "C:\\Users\\impos\\.nuget\\packages\\",
-      "outputPath": "C:\\C#Projects\\BeautyBareAPI\\obj\\",
+      "outputPath": "C:\\C#Projects\\BeautyBare\\BeautyBareAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2463,7 +2463,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }
